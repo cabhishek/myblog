@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}{{post.title|escape}} - {{config.blog_name}}{% endblock %}
+{% block body %}
+  <h2>{{post.title|escape}}</h2>
+    <p class="post-info">
+      Posted by {{config.author_name}}
+      | Posted on {{post.published|date:"d F, Y"}}
+      {% if post.tags %}
+        | Filed under
+        {% for tag in post.tag_pairs %}
+          <a href="/tag/{{tag.1|escape}}">{{tag.0|escape}}</a>{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      {% endif %}
+    </p>
+  <br/>
+  {{post.body}}
+  <br/>
+  <p class="postmeta">
+    <span class="date">{{post.published|date:"d F, Y"}}</span>
+    <div id="fb-root">
+    </div>
+    <script src="http://connect.facebook.net/en_US/all.js#appId=245744508785966&amp;xfbml=1">
+    </script>
+    <fb:like href="" send="true" width="450" show_faces="true" font="">
+    </fb:like>
+    <g:plusone></g:plusone>
+  </p>
+  <p>
+  	  <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+     <div>
+		  <a href="http://twitter.com/share" class="twitter-share-button"
+		  data-text="{{post.title|escape}}" 
+		  data-count="horizontal" 
+		  data-via="cabhishek">Tweet</a>
+	 </div>
+  </p>
+   {% if config.disqus_forum %}
+    <h3 id="comments">Comments</h3>
+    <div id="disqus_thread"></div>
+    {% if devel %}
+      <script type="text/javascript">
+        disqus_developer = 1;
+      </script>
+    {% endif %}
+    <script type="text/javascript" src="http://disqus.com/forums/{{config.disqus_forum}}/embed.js"></script>
+    <noscript><a href="http://disqus.com/forums/{{config.disqus_forum}}/?url=ref">View the discussion thread.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  {% endif %}
+{% endblock %}

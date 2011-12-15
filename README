@@ -1,0 +1,2 @@
+Blog is powered by GAE, uses python, webapp framework, and google's data store. 
+It has a admin interface for editing/archiving/deleting posts. Mixpanel and Google analytics are the brains behind this blog. Additionally I used Name Cheap to register my domain, disqus for blog comments, Eclipse IDE and Web Expression as my development tools. For Beautiful typography I used Web fonts.

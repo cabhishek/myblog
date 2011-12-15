@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Move 1 resources to &apos;default&apos;" description="Move 1 resources to &apos;default&apos;" destination="themes/default" element1="themes/static" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1311711708152" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;moviebuff/searchHandler.py&apos; to &apos;searchhandler.py&apos;" description="Rename resource &apos;searchHandler.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="searchHandler.py" name="searchhandler.py" stamp="1311712265035" updateReferences="true"/>
+</session>
