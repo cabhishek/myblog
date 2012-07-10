@@ -66,5 +66,5 @@ google_site_verification = 'google7d49977329ef01c9.html'
 google_sitemap_ping = True;
 
 bio = """Abhishek Kapatkar, software developer at <a href=http://www.fool.com target="_blank">The Motley Fool</a>.  
-       Startup junkie, hackernews crazy, music and movie fanatic living in Washington DC."""
+       Startup junkie and product development enthusiast living in Washington DC. Read more <a href=http://www.cabhishek.com/infopage/Bio>here</a>"""
 
