@@ -2,3 +2,4 @@
 *.lck
 *.swp
 .metadata
+.metadata/
