@@ -39,7 +39,7 @@ html_mime_type = "text/html; charset=utf-8"
 # created for the purpose.
 disqus_forum = "cabhishek"
 
-# Use disqus for comments?
+# Use disqus for comments.
 use_disqus = True
 
 # Length (in words) of summaries, by default
