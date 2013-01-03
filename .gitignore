@@ -1,4 +1,4 @@
 *.pyc
 *.lck
 *.swp
-.metadata/
+.metadata
