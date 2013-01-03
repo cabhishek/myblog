@@ -52,10 +52,10 @@ analytics_id = 'UA-7563173-2'
 hubbub_hub_url = 'http://pubsubhubbub.appspot.com/'
 
 linkedin_profile = 'abhishekkapatkar'
-
 github_profile='cabhishek'
-
 twitter_profile='cabhishek'
+pinboard_profile = 'cabhishek'
+
 # If you want to use Google Site verification, go to 
 # https://www.google.com/webmasters/tools/ , add your site, choose the 'upload
 # an html file' method, then set the NAME of the file below.

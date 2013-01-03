@@ -74,6 +74,7 @@
          <h2>Contact</h2>
          <p><a href="https://twitter.com/{{config.twitter_profile}}" target="_blank">Twitter</a></p>
          <p><a href="https://github.com/{{config.github_profile}}" target="_blank">GitHub</a></p>
+         <p><a href="http://pinboard.in/u:{{config.pinboard_profile}}" target="_blank">My Pinboard</a></p>
          <p class="marginT"></p>
          <h2>Tags</h2>
          {% for tag in tags %}
@@ -127,7 +128,7 @@
          <div class="c1"><a href="http://www.goodreads.com/"><img alt="Book recommendations, book reviews, quotes, book clubs, book trivia, book lists" border="0" height="32" src="http://www.goodreads.com/images/widget/widget_logo.gif" title="Book recommendations, book reviews, quotes, book clubs, book trivia, book lists" width="190" /></a></div>
       </div>
 	  
-      <p class="copy">© {%now | date:"l d M Y" %} <a href="/">{{config.author_name}}</a></p>
+      <p class="copy"><a href="/">{{config.author_name}}</a></p>
       {% if config.analytics_id %} <script type="text/javascript">
          //<![CDATA[
            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
