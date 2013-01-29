@@ -29,7 +29,12 @@
    </head>
    <body>
       {% block head %}{% endblock %} 
-      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js"></script><script type="text/javascript" src="/static/{{config.theme}}/js/prettify.js"></script></script><script type="text/javascript">
+      
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js"></script>
+      <script type="text/javascript" src="/static/{{config.theme}}/js/prettify.js"></script></script>
+      <script type="text/javascript">
          //<![CDATA[
           
                  var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); 
@@ -62,7 +67,7 @@
 	  
       <div id="sidebar">
          <form id="quick-search" action="/search" method="get">
-            <p class="marginB">Search: <input type="hidden" name="cref" value="http://{{config.host}}/cse.xml" /> <input type="hidden" name="cof" value="FORID:11" /> <input type="hidden" name="ie" value="UTF-8" /> <input class="tbox" type="text" name="q" size="31" /></p>
+            <p class="marginB">Search blog: <input type="hidden" name="cref" value="http://{{config.host}}/cse.xml" /> <input type="hidden" name="cof" value="FORID:11" /> <input type="hidden" name="ie" value="UTF-8" /> <input class="tbox" type="text" name="q" size="31" /></p>
          </form>
          <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script> <img id="img-me" src="/static/{{config.theme}}/images/eric-cartman.jpg" alt="me" />
          <h2 class="marginT">About Me   <a href="/feeds/atom.xml"><img id="img-rss" src="/static/{{config.theme}}/images/feed-icon-28x28.png" alt="RSS" /></a></h2>
