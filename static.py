@@ -19,7 +19,7 @@ HTTP_DATE_FMT = "%a, %d %b %Y %H:%M:%S GMT"
 
 class StaticContent(db.Model):
   """Container for statically served content.
-  
+
   The serving path for content is provided in the key name.
   """
   body = db.BlobProperty()
@@ -30,7 +30,7 @@ class StaticContent(db.Model):
 
 def get(path):
   """Returns the StaticContent object for the provided path.
-  
+
   Args:
     path: The path to retrieve StaticContent for.
   Returns:
@@ -38,19 +38,19 @@ def get(path):
   """
   entity = memcache.get(path)
   if entity:
-      entity = db.model_from_protobuf(entity_pb.EntityProto(entity)) 
+      entity = db.model_from_protobuf(entity_pb.EntityProto(entity))
   else:
       entity = StaticContent.get_by_key_name(path)
       if entity:
           memcache.set(path, db.model_to_protobuf(entity).Encode())
-  
+
   return entity
-  
+
 
 
 def set(path, body, content_type, indexed=True, **kwargs):
   """Sets the StaticContent for the provided path.
-  
+
   Args:
     path: The path to store the content against.
     body: The data to serve for that path.
@@ -82,7 +82,7 @@ def set(path, body, content_type, indexed=True, **kwargs):
 
 def add(path, body, content_type, indexed=True, **kwargs):
   """Adds a new StaticContent and returns it.
-  
+
   Args:
     As per set().
   Returns:
@@ -106,8 +106,8 @@ def remove(path):
             return
         content.delete()
     return db.run_in_transaction(_tx)
-        
-  
+
+
 class StaticContentHandler(webapp.RequestHandler):
   def output_content(self, content, serve=True):
     self.response.headers['Content-Type'] = content.content_type
@@ -118,7 +118,7 @@ class StaticContentHandler(webapp.RequestHandler):
       self.response.out.write(content.body)
     else:
       self.response.set_status(304)
-  
+
   def get(self, path):
     content = get(path)
     if not content:

@@ -9,7 +9,7 @@ builtins:
 - datastore_admin: on
 
 handlers:
- 
+
 - url: /remote_api
   script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
   login: admin
@@ -17,11 +17,11 @@ handlers:
 - url: /_ah/queue/deferred
   script: $PYTHON_LIB/google/appengine/ext/deferred/handler.py
   login: admin
- 
+
 - url: /admin/pages/(.*)
   script: pages.py
   login: admin
-  
+
 - url: /admin/(.*)
   script: admin.py
   login: admin
