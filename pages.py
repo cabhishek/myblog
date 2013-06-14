@@ -5,16 +5,16 @@ import fix_path
 import pageshandler
 
 application = webapp.WSGIApplication([
-  ('/admin/pages/newpost', pageshandler.PageHandler),
-  ('/infopage/(.*)', pageshandler.PageGenerator),
-  
-])
+                                     ('/admin/pages/newpost',
+                                      pageshandler.PageHandler),
+                                    ('/infopage/(.*)', pageshandler.PageGenerator),
+
+                                     ])
 
 
 def main():
-  run_wsgi_app(application)
+    run_wsgi_app(application)
 
 
 if __name__ == '__main__':
-  main()
-
+    main()
