@@ -62,5 +62,5 @@ google_site_verification = 'google7d49977329ef01c9.html'
 
 google_sitemap_ping = True
 
-bio = """Abhishek Kapatkar, software developer at <a href=http://www.fool.com target="_blank">The Motley Fool</a>.
+bio = """Abhishek Kapatkar, Builder @ <a href=http://www.fool.com target="_blank">The Motley Fool</a>.
        Startup junkie and product development enthusiast living in Washington DC. Read more <a href=http://www.cabhishek.com/infopage/Bio>here</a>"""
