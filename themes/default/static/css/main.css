@@ -87,12 +87,15 @@ header a {
 
 a {
     text-decoration: none;
-    color: #a97c4d;
+    color: #004d7a;
+    /*color: #a97c4d;*/
 }
 
 a:hover {
-    color:#7D945C;
-    border-bottom: 1px dotted;
+    color: #FFFAF0;
+    /*color:#7D945C;*/
+    background-color: #004d7a;
+    border-bottom: 1px;
 }
 
 sup, sub {
