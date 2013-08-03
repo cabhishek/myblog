@@ -88,6 +88,7 @@ header a {
 a {
     text-decoration: none;
     color: #004d7a;
+    border-bottom: 1px dotted
     /*color: #a97c4d;*/
 }
 
