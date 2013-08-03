@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block title %}{{post.title|escape}} - {{config.blog_name}}{% endblock %}
 {% block body %}
+  <a href="/">&larr; back</a>
+  <br/>
   <h2>{{post.title|escape}}</h2>
     <p class="post-info">
       Posted by {{config.author_name}}
@@ -15,22 +17,13 @@
   <br/>
   {{post.body}}
   <br/>
-  <p class="postmeta">
-    <span class="date">{{post.published|date:"d F, Y"}}</span>
-    <div id="fb-root">
-    </div>
-    <script src="http://connect.facebook.net/en_US/all.js#appId=245744508785966&amp;xfbml=1">
-    </script>
-    <fb:like href="" send="true" width="450" show_faces="true" font="">
-    </fb:like>
-    <g:plusone></g:plusone>
-  </p>
+
   <p>
   	  <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
      <div>
 		  <a href="http://twitter.com/share" class="twitter-share-button"
-		  data-text="{{post.title|escape}}" 
-		  data-count="horizontal" 
+		  data-text="{{post.title|escape}}"
+		  data-count="horizontal"
 		  data-via="cabhishek">Tweet</a>
 	 </div>
   </p>

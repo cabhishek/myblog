@@ -7,9 +7,8 @@ author_name = 'Abhishek Kapatkar'
 author_emailid = 'cabhishek@hotmail.com'
 
 # (Optional) slogan
-slogan = 'Tech, words and opinion ....'
-
-title = 'Random Thoughts'
+slogan = ''
+title = ''
 
 # The hostname this site will primarially serve off (used for Atom feeds)
 host = 'www.cabhishek.com'

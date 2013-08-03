@@ -1,17 +1,14 @@
-import datetime
-import logging
-import os
-
+from django import newforms as forms
+from google.appengine.ext.db import djangoforms
 from google.appengine.ext import deferred
 from google.appengine.ext import webapp
 from google.appengine.api import memcache
-
 import models
 import post_deploy
 import utils
-
-from django import newforms as forms
-from google.appengine.ext.db import djangoforms
+import datetime
+# import logging
+import os
 
 
 class PostForm(djangoforms.ModelForm):

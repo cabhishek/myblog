@@ -1,11 +1,9 @@
-import os
-import re
-import unicodedata
-
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
-
+import unicodedata
 import config
+import os
+import re
 
 
 def slugify(s):
