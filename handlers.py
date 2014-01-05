@@ -1,13 +1,13 @@
-from django import newforms as forms
 from google.appengine.ext.db import djangoforms
 from google.appengine.ext import deferred
-from google.appengine.ext import webapp
+import webapp2
 from google.appengine.api import memcache
+from django import forms
+
 import models
 import post_deploy
 import utils
 import datetime
-# import logging
 import os
 
 
@@ -36,19 +36,25 @@ def with_post(fun):
                 self.error(404)
                 return
         fun(self, post)
+
     return decorate
 
 
-class BaseHandler(webapp.RequestHandler):
+class BaseHandler(webapp2.RequestHandler):
+
     def render_to_response(self, template_name, template_vals=None, theme=None):
+
         if not template_vals:
             template_vals = {}
+
         template_vals.update({
             'path': self.request.path,
             'handler_class': self.__class__.__name__,
         })
+
         template_name = os.path.join("admin", template_name)
-        self.response.out.write(
+
+        self.response.write(
             utils.render_template(template_name, template_vals,
                                   theme))
 
@@ -69,6 +75,7 @@ class AdminHandler(BaseHandler):
             'posts': posts,
             'pagePosts': pagePosts
         }
+
         self.render_to_response("index.html", template_vals)
 
 

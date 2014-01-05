@@ -5,12 +5,12 @@ import os
 from google.appengine.api import memcache
 from google.appengine.datastore import entity_pb
 from google.appengine.ext import db
-from google.appengine.ext import webapp
+import webapp2
 import models
 import utils
 import config
 import generators
-from django import newforms as forms
+from django import forms
 from google.appengine.ext.db import djangoforms
 
 """ form for writing different personal pages"""
@@ -41,7 +41,7 @@ def with_pagepost(func):
     return decorate
 
 
-class BaseHandler(webapp.RequestHandler):
+class BaseHandler(webapp2.RequestHandler):
 
     def render_to_response(self, template_name, template_folder_name, template_vals=None, theme=None):
         if not template_vals:
@@ -51,7 +51,7 @@ class BaseHandler(webapp.RequestHandler):
             'handler_class': self.__class__.__name__,
         })
         template_name = os.path.join(template_folder_name, template_name)
-        self.response.out.write(
+        self.response.write(
             utils.render_template(template_name, template_vals,
                                   theme))
 
@@ -86,10 +86,10 @@ class PageHandler(BaseHandler):
 """ Generates personal pages """
 
 
-class PageGenerator(webapp.RequestHandler):
+class PageGenerator(webapp2.RequestHandler):
 
     def render_page(self, values):
-        self.response.out.write(utils.render_template("page.html", values,
+        self.response.write(utils.render_template("page.html", values,
                                                       "default"))
 
     def getInfoPage(self, pageKey):

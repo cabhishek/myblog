@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+
 {% block title %}All Posts{% endblock %}
+
 {% block body %}
   <script type="text/javascript">
   	function delete_post(id){
@@ -20,7 +22,7 @@
   	<thead>
   	 <th style="width: 158px">Title</th><th>Published</th><th>Action</th>
   	</thead>
-  {% for page in pagePosts %}	
+  {% for page in pagePosts %}
     <tr>
       <td style="width: 158px"><a href="{{page.path}}">{{page.title}}</a></td>
       <td>{{page.published|date:"Y-m-d"}}</td>

@@ -1,12 +1,19 @@
 application: blog-abhishek
 version: live-v4
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: false
 
 builtins:
 - appstats: on
 - remote_api: on
-- datastore_admin: on
+
+libraries:
+- name: django
+  version: "latest"
+
+- name: jinja2
+  version: "2.6"
 
 handlers:
 
@@ -19,11 +26,11 @@ handlers:
   login: admin
 
 - url: /admin/pages/(.*)
-  script: pages.py
+  script: pages.app
   login: admin
 
 - url: /admin/(.*)
-  script: admin.py
+  script: admin.app
   login: admin
 
 - url: /static/([^/]+)/(.*)
@@ -31,11 +38,11 @@ handlers:
   upload: themes/[^/]+/static/(.*)
 
 - url: /infopage/(.*)
-  script: pages.py
+  script: pages.app
 
 - url: /google7d49977329ef01c9.html
   static_files: google7d49977329ef01c9.html
   upload: google7d49977329ef01c9.html
 
 - url: /(.*)
-  script: static.py
+  script: static.app

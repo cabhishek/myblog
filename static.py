@@ -1,18 +1,18 @@
-import datetime
-import hashlib
-
-from google.appengine.api import memcache
 from google.appengine.datastore import entity_pb
-from google.appengine.ext import db
+from google.appengine.api import memcache
 from google.appengine.api import taskqueue
 from google.appengine.ext import deferred
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp import template
-from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext import db
+
+import webapp2
+import datetime
+import hashlib
 import fix_path
 import aetycoon
 import utils
 
+import os
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 HTTP_DATE_FMT = "%a, %d %b %Y %H:%M:%S GMT"
 
@@ -110,10 +110,11 @@ def remove(path):
         if not content:
             return
         content.delete()
+
     return db.run_in_transaction(_tx)
 
 
-class StaticContentHandler(webapp.RequestHandler):
+class StaticContentHandler(webapp2.RequestHandler):
 
     def output_content(self, content, serve=True):
         self.response.headers['Content-Type'] = content.content_type
@@ -121,7 +122,7 @@ class StaticContentHandler(webapp.RequestHandler):
         self.response.headers['Last-Modified'] = last_modified
         self.response.headers['ETag'] = '"%s"' % (content.etag,)
         if serve:
-            self.response.out.write(content.body)
+            self.response.write(content.body)
         else:
             self.response.set_status(304)
 
@@ -129,7 +130,7 @@ class StaticContentHandler(webapp.RequestHandler):
         content = get(path)
         if not content:
             self.error(404)
-            self.response.out.write(utils.render_template('404.html'))
+            self.response.write(utils.render_template('404.html'))
             return
 
         serve = True
@@ -147,12 +148,4 @@ class StaticContentHandler(webapp.RequestHandler):
         self.output_content(content, serve)
 
 
-application = webapp.WSGIApplication([('(/.*)', StaticContentHandler)])
-
-
-def main():
-    run_wsgi_app(application)
-
-
-if __name__ == '__main__':
-    main()
+app = webapp2.WSGIApplication([('(/.*)', StaticContentHandler)])

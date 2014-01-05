@@ -1,19 +1,12 @@
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
-import fix_path
+import webapp2
 import pageshandler
+import os
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-application = webapp.WSGIApplication([
+
+app = webapp2.WSGIApplication([
                                      ('/admin/pages/newpost',
                                       pageshandler.PageHandler),
-                                    ('/infopage/(.*)', pageshandler.PageGenerator),
+    ('/infopage/(.*)', pageshandler.PageGenerator),
 
-                                     ])
-
-
-def main():
-    run_wsgi_app(application)
-
-
-if __name__ == '__main__':
-    main()
+])

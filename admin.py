@@ -1,13 +1,12 @@
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
+import webapp2
 import post_deploy
-import handlers
 import pageshandler
+import handlers
 
 post_deploy.run_deploy_task()
 
 
-application = webapp.WSGIApplication([
+app = webapp2.WSGIApplication([
   ('/admin/', handlers.AdminHandler),
   ('/admin/newpost', handlers.PostHandler),
   ('/admin/post/(\d+)', handlers.PostHandler),
@@ -16,12 +15,3 @@ application = webapp.WSGIApplication([
   ('/admin/pagepost/(\w+)', pageshandler.PageHandler),
   ('/admin/post/delete/(\d+)', handlers.DeleteHandler)
 ])
-
-
-def main():
-  run_wsgi_app(application)
-
-
-if __name__ == '__main__':
-  main()
-
