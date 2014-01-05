@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <title>{{config.author_name}} blog</title>
+      <link href="http://fonts.googleapis.com/css?family=Gentium+Book+Basic" rel="stylesheet" type="text/css" />
+      <link href="http://fonts.googleapis.com/css?family=Lato&amp;v1" rel="stylesheet" type="text/css" />
+      <link rel="shortcut icon" href="/static/{{config.theme}}/images/favicon.ico" />
+      <link rel="stylesheet" type="text/css" media="screen" href="/static/{{config.theme}}/css/main.css" />
+      <link rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" />
+      <meta content="Abhishek Kapatkar Blog" />
+      <meta content="blog" />
+      <meta content="http://wwww.cabhishek.com/" />
+      <meta content="Abhishek Kapatkar Blog" />
+      <meta content="534261516" />
+      <link href="/static/{{config.theme}}/css/pygments_friendly.css" type="text/css" rel="stylesheet" />
+      <link href="/static/{{config.theme}}/css/prettify.css" type="text/css" rel="stylesheet" />
+
+      <style type="text/css">
+         /*<![CDATA[*/
+            div.c6 {border: 1px solid #d7d7d7;-moz-border-radius:10px;-webkit-border-radius:10px;width: 165px;padding:10px; margin-bottom: 4px}
+            a.c5 {color: #aaa;font-size: .9em}
+            br.c4 {clear:both}
+            a.c3 {float: left; padding: 2px}
+            span.c2 {color: #aaa;font-style:italic}
+            div.c1 {margin:0px;}
+            /*]]>*/
+      </style>
+
+   </head>
+
+   <body>
+      {% block head %}{% endblock %}
+
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js"></script>
+      <script type="text/javascript" src="/static/{{config.theme}}/js/prettify.js"></script>
+
+      <script type="text/javascript">
+         //<![CDATA[
+
+                 var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+                 document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E'));
+         //]]>
+      </script><script type="text/javascript">
+         //<![CDATA[
+
+                 var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+                 document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E'));
+         //]]>
+      </script><script type="text/javascript">
+         //<![CDATA[
+
+                 try {  var mpmetrics = new MixpanelLib('036721d94df7eb98df9577a32db0ae91'); }
+                 catch(err) { null_fn = function () {};
+                 var mpmetrics = {  track: null_fn,  track_funnel: null_fn,  register: null_fn,  register_once: null_fn, register_funnel: null_fn }; }
+         //]]>
+      </script>
+
+      <div id="main" class="lifted-up">
+         <div id="content">
+            <div id="main" class="grid_12">{% block body %}{% endblock %}</div>
+         </div>
+      </div>
+
+      <div id="sidebar">
+
+         <form id="quick-search" action="/search" method="get">
+            <input type="hidden" name="cref" value="http://{{config.host}}/cse.xml" />
+            <input type="hidden" name="cof" value="FORID:11" />
+            <input type="hidden" name="ie" value="UTF-8" />
+            <input class="tbox" type="text" name="q" size="41" />
+         </form>
+         <br/>
+
+         <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+
+         <h2 class="marginT">About Me
+          <a href="/feeds/atom.xml">
+            <img id="img-rss" src="/static/{{config.theme}}/images/feed-icon-28x28.png" alt="RSS" />
+          </a>
+        </h2>
+
+         <p>{{config.bio}}</p>
+
+         <p class="marginT">{% for page in pages %} <a href="{{page.path}}">{{page.title}}</a><br />
+            {% endfor %}
+         </p>
+         <p class="marginT"></p>
+
+         <h2>Contact</h2>
+         <p><a href="https://twitter.com/{{config.twitter_profile}}" target="_blank">Twitter</a></p>
+         <p><a href="https://github.com/{{config.github_profile}}" target="_blank">GitHub</a></p>
+         <p><a href="http://pinboard.in/u:{{config.pinboard_profile}}" target="_blank">My Pinboard</a></p>
+         <p class="marginT"></p>
+
+         <h2>Tags</h2>
+         {% for tag in tags %}
+         <p><a href="/tag/{{tag}}">{{tag}}</a> {% if not forloop.last %},{% endif %}</p>
+         {% endfor %}
+         <br/>
+
+        <a class="twitter-timeline" href="https://twitter.com/cabhishek" data-widget-id="296375829611548672">Tweets by @cabhishek</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+        </script>
+
+      </div>
+
+      <p class="copy"><a href="/">{{config.author_name}}</a></p>
+
+      {% if config.analytics_id %}
+        <script type="text/javascript">
+           //<![CDATA[
+             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+           //]]>
+        </script>
+
+        <script type="text/javascript">
+           //<![CDATA[
+             try {
+             var pageTracker = _gat._getTracker("{{config.analytics_id}}");
+             pageTracker._trackPageview();
+             } catch(err) {}
+           //]]>
+        </script>
+
+	  {% endif %}
+
+   </body>
+</html>
