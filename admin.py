@@ -3,6 +3,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 import post_deploy
 import handlers
 import pageshandler
+import appengine_config
 
 post_deploy.run_deploy_task()
 
